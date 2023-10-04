@@ -4,7 +4,7 @@ const menuItems = document.querySelectorAll('.menu-item');
 const messagesNotification = document.querySelector('#messages-notification'); 
 const messages = document.querySelector('.messages');
 const message = messages.querySelectorAll('.message');
-const messageSearch = document.querySelector('#messages-search');
+const messageSearch = document.querySelector('#message-search');
 
 //remove active class  fromm all menu items
 const changeActiveItem = () => {
@@ -22,9 +22,9 @@ menuItems.forEach(item => {
             style.display = 'none'; 
         } else{
             document.querySelector('.notifications-popup').
-            style.display = 'block';
+            style.display = 'none';
             document.querySelector('#notifications .notification-count').
-            style.display = 'none'
+            style.display = 'block'
 
         }
     })
@@ -35,13 +35,15 @@ menuItems.forEach(item => {
 //search chats
 const searchMessage = () => {
     const val = messageSearch.value.toLowerCase();
-    message.forEach(chat => {
-        let name = chat.querySelectorAll('h5').textContent.toLocaleLowerCase();
+    message.forEach(user => {
+        let name = user.querySelectorAll('h5').textContent.toLowerCase();
         if(name.indexOf(val) != -1){
-            chat.style.display = 'flex'
-        }else{
-            chat.style.display = 'none';
+            user.style.display = "flex";
+        } else {
+            user.style.display = "none";
         }
+        
+        
     })
 }
 
